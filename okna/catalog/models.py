@@ -10,6 +10,7 @@ class Group(models.Model):
 
 
 class Item(models.Model):
+    name = models.SlugField(unique=True, default='window')
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     group = models.ForeignKey(
@@ -23,4 +24,3 @@ class Item(models.Model):
         verbose_name_plural = 'items'
         verbose_name = 'item'
         ordering = ['-pub_date']
-
